@@ -1,5 +1,6 @@
 import { description, title, url } from "@/lib/metadata";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -33,9 +34,15 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-3 place-items-center px-4">
-      <span className="text-2xl">{title}</span>
-      <span className="text-muted-foreground">{description}</span>
+    <main className="flex flex-col gap-3 place-items-center px-4 py-8">
+      <span className="text-3xl font-bold">{title}</span>
+      <span className="text-muted-foreground text-center">{description}</span>
+      <Link
+        href="/quiz"
+        className="mt-6 inline-block rounded-md bg-blue-600 px-6 py-3 text-white transition hover:bg-blue-700"
+      >
+        Start Quiz
+      </Link>
     </main>
   );
 }
